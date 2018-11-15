@@ -1,0 +1,73 @@
+<section ng-controller="CoreCtrl" layout="column" ng-cloak layout-padding layout-margin class="rsm-zero-top">
+    <div layout="row" layout-align="center center" class="rsm-zero-top">
+        <img src="../images/redstone.png" alt="Redstone Print and Mail" height="70px">
+        <h1 class="rsm-text-center rsm-pick-ticket-title">Pick Tickets</h1>
+    </div>
+
+    <!-- the filter search box -->
+    <md-card style="margin:0">
+        <md-input-container style="margin:15px;">
+            <label>Filter by Coordinator</label>
+            <input type="text" ng-model="filterName">
+        </md-input-container>
+
+        <div ng-hide="true">
+            {{(filteredItems = (ccPrintTickets | filter: filterName))}}
+        </div>
+    </md-card>
+
+    <!---- the maximum rows selected info box ---->
+    <div ng-if="ccRowsSelected >= 1"
+         style="font-size: 12px;padding:5px;margin:0; margin-bottom:8px; line-height:18px; border: 1px solid #c4c4c4;background: white;">
+        <h3 class="rsm-text-center">
+            <ng-md-icon icon="info" size="16" style="fill:#479BFF;margin-right: 5px;"></ng-md-icon>
+            {{ ccRowsSelected }} / {{ ccMaximumRows }} rows selected for deletion
+        </h3>
+        <div ng-if="ccRowsSelected === ccMaximumRows">
+            <h2 style="color: #d9464a; text-align: center">
+                LIMIT REACHED - won't be able to update Database with more rows
+            </h2>
+        </div>
+    </div>
+
+    <mdt-table table-card="{visible: true, title: 'Select 1 or more rows (to delete after it has been picked)'}"
+            selectable-rows="true" selected-row-callback="ccRowSelectedCallback(rows)"
+            delete-row-callback="ccMarkComplete(rows)" alternate-headers="'contextual'"
+            mdt-row="{'data': filteredItems, 'table-row-id-key': 'id',
+                        'column-keys': ['job_number', 'coordinator_name', 'due_date', 'quantity', 'paper_description',
+                        'envelope_description', 'paper_img_url', 'envelope_img_url']}">
+
+        <!-- table rows -->
+        <mdt-header-row>
+            <mdt-column align-rule="left">Job #</mdt-column>
+            <!--<mdt-column align-rule="left">Mark Complete</mdt-column>-->
+            <mdt-column align-rule="left">Coordinator</mdt-column>
+            <mdt-column align-rule="right">The Due Date</mdt-column>
+            <mdt-column align-rule="right">Quantity</mdt-column>
+            <mdt-column align-rule="left">Paper Description</mdt-column>
+            <mdt-column align-rule="left">Envelope Description</mdt-column>
+            <mdt-column align-rule="center">Paper Image</mdt-column>
+            <mdt-column align-rule="center">Envelope Image</mdt-column>
+        </mdt-header-row>
+
+        <!-- // The check mark circle button:
+         <mdt-custom-cell column-key="mark_complete">
+            <div class="rsm-round-btn" ng-click="clientScope.ccMarkComplete(this)">
+                <ng-md-icon icon="done" size="32" style="fill: #FFFFFF;position: relative;top: 11px;"></ng-md-icon>
+            </div>
+        </mdt-custom-cell>
+         -->
+
+        <mdt-custom-cell column-key="paper_img_url">
+            <div class="rsm-crop">
+                <img ng-src="{{value}}" alt="{{clientScope.getNutritionWithId(rowId).name}}"/>
+            </div>
+        </mdt-custom-cell>
+
+        <mdt-custom-cell column-key="envelope_img_url">
+            <div class="rsm-crop">
+                <img ng-src="{{value}}" alt="{{clientScope.getNutritionWithId(rowId).name}}"/>
+            </div>
+        </mdt-custom-cell>
+    </mdt-table>
+</section>

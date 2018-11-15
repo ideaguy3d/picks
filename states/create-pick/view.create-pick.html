@@ -1,0 +1,81 @@
+<section layout="column" layout-padding layout-margin>
+    <div layout="row" layout-align="center center">
+        <h1 class="rsm-text-center"> {{cCreatePick.viewTitle}} &nbsp;&nbsp;</h1>
+        <img src="../images/ticket.png" alt="pick ticket" height="70px">
+    </div>
+
+    <!-- send pick ticket button -->
+    <div ng-hide="!cCreatePick.requestStatus" class="rsm-request-status">
+        <h2>{{cCreatePick.requestStatus + " for job " + typeof(cCreatePick.jobNumber).toString() + " " + cCreatePick.jobNumber}}</h2>
+    </div>
+
+    <div ng-hide="!cCreatePick.showPickForm" class="rsm-form-container">
+        <form ng-submit="$event.preventDefault()">
+            <!-- jobNumber & coordinatorName -->
+            <div layout-gt-xs="row">
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Job Number</label>
+                    <input type="text" ng-model="cCreatePick.jobNumber" require>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Coordinator Name</label>
+                    <input type="text" ng-model="cCreatePick.coordinatorName">
+                </md-input-container>
+            </div>
+
+            <!-- quantity & dueDate -->
+            <div layout-gt-xs="row">
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Quantity</label>
+                    <input type="text" ng-model="cCreatePick.quantity">
+                </md-input-container>
+
+
+                <div layout="row" layout-align="start center" class="md-block rsm-text-center" flex-gt-xs>
+                    <!--<input type="text" ng-model="cCreatePick.dueDate">-->
+                    <h4>&nbsp;&nbsp; Due Date</h4>
+                    <md-datepicker ng-model="cCreatePick.dueDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                </div>
+            </div>
+
+            <!-- envelopeDescription & paperDescription  -->
+            <div layout-gt-xs="row">
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Description of Envelope</label>
+                    <input type="text" ng-model="cCreatePick.envelopeDescription">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Description of paper</label>
+                    <input type="text" ng-model="cCreatePick.paperDescription">
+                </md-input-container>
+            </div>
+
+            <!-- envelopeImgUrl & paperImgUrl -->
+            <div layout-gt-xs="row">
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Envelope Image Url</label>
+                    <input type="text" ng-model="cCreatePick.envelopeImgUrl">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Paper Image Url</label>
+                    <input type="text" ng-model="cCreatePick.paperImgUrl">
+                </md-input-container>
+            </div>
+        </form>
+
+        <!-- submit button -->
+        <div layout-gt-xs="row" layout-align="start center">
+            <md-button class="md-fab md-primary rsm-btn32-icon" aria-label="Add Inventory Item"
+                       ng-click="cCreatePick.sendPickTicket()">
+                <!-- style = "fill: white" -->
+                <ng-md-icon icon="send" size="32" style="fill: white"></ng-md-icon>
+            </md-button>
+            <p>Send Pick Ticket for Job <b>{{cCreatePick.jobNumber }}</b>&nbsp;&nbsp;<ng-md-icon icon="face"></ng-md-icon></p>
+        </div>
+    </div>
+
+    <!--<md-divider></md-divider>-->
+</section>
