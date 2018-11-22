@@ -2,8 +2,8 @@ html, body {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     height: 100%;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 /* Toolbar area */
@@ -33,7 +33,7 @@ md-list .md-button.selected {
 }
 
 md-sidenav md-list {
-    padding: 0px 0px 8px 0px;
+    padding: 0 0 8px 0;
 }
 
 /* Primary content area */
@@ -194,7 +194,7 @@ ng-md-icon.rsm-sidenav-icon > svg {
 }
 
 .rsm-crop {
-    width: 70px;
+    /*width: 70px;*/
     height: 70px;
     overflow: hidden;
 }
@@ -273,6 +273,35 @@ ng-md-icon.rsm-sidenav-icon > svg {
 .rsm-request-status.ng-hide {
     opacity: 0;
     transform: scale(0.8);
+}
+
+.rsm-dialog-images {
+    display: inline-block;
+    margin: 8px;
+    cursor: pointer;
+}
+
+.rsm-scale-hover {
+    transition: all 0.08s linear;
+    cursor: pointer;
+}
+
+.rsm-scale-hover:hover {
+    transform: scale(2.0);
+    z-index: 99999999 !important;
+}
+
+.rsm-display-block {
+    display: block !important;
+}
+
+.rsm-75vw {
+    width: 75vw;
+}
+
+.rsm-grid-list {
+    margin: auto;
+    width: 57vw;
 }
 
 

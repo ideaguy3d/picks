@@ -16,7 +16,7 @@
         </div>
     </md-card>
 
-    <!---- the maximum rows selected info box ---->
+    <!-- the maximum rows selected info box -->
     <div ng-if="ccRowsSelected >= 1"
          style="font-size: 12px;padding:5px;margin:0; margin-bottom:8px; line-height:18px; border: 1px solid #c4c4c4;background: white;">
         <h3 class="rsm-text-center">
@@ -30,8 +30,8 @@
         </div>
     </div>
 
-    <mdt-table table-card="{visible: true, title: 'Select 1 or more rows (to delete after it has been picked)'}"
-            selectable-rows="true" selected-row-callback="ccRowSelectedCallback(rows)"
+    <mdt-table selectable-rows="true" selected-row-callback="ccRowSelectedCallback(rows)"
+            table-card="{visible: true, title: 'Select 1 or more rows to delete after it has been picked. Click Image to enlarge to.'}"
             delete-row-callback="ccMarkComplete(rows)" alternate-headers="'contextual'"
             mdt-row="{'data': filteredItems, 'table-row-id-key': 'id',
                         'column-keys': ['job_number', 'coordinator_name', 'due_date', 'quantity', 'paper_description',
@@ -50,14 +50,6 @@
             <mdt-column align-rule="center">Envelope Image</mdt-column>
         </mdt-header-row>
 
-        <!-- // The check mark circle button:
-         <mdt-custom-cell column-key="mark_complete">
-            <div class="rsm-round-btn" ng-click="clientScope.ccMarkComplete(this)">
-                <ng-md-icon icon="done" size="32" style="fill: #FFFFFF;position: relative;top: 11px;"></ng-md-icon>
-            </div>
-        </mdt-custom-cell>
-         -->
-
         <mdt-custom-cell column-key="paper_img_url">
             <div class="rsm-crop">
                 <img ng-src="{{value}}" alt="{{clientScope.getNutritionWithId(rowId).name}}"/>
@@ -65,9 +57,21 @@
         </mdt-custom-cell>
 
         <mdt-custom-cell column-key="envelope_img_url">
-            <div class="rsm-crop">
-                <img ng-src="{{value}}" alt="{{clientScope.getNutritionWithId(rowId).name}}"/>
+            <div class="rsm-crop"> <!-- -->
+                <a ng-href="{{value}}" target="_blank">
+                    <img ng-src="{{value}}" alt="{{clientScope.getNutritionWithId(rowId).name}}"/>
+                </a>
             </div>
         </mdt-custom-cell>
     </mdt-table>
+
+    <!-- loading gif -->
+    <div layout="column" layout-align="center center" layout-padding layout-margin
+         ng-if="ccDataLoading">
+        <img src="../images/loader.gif" alt="loading gif">
+        <h2>How many times does the ball bounce?</h2>
+        <p>
+            <small>(: Just something to do while the data is loading :)</small>
+        </p>
+    </div>
 </section>

@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
+    <meta name="description" content="pick tickets">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
 
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
@@ -14,9 +14,7 @@
     <link rel="stylesheet" href="assets/picks.app.css"/>
 
     <style type="text/css">
-        /**
-         * Hide when Angular is not yet loaded and initialized
-         */
+        /** Hide when Angular is not yet loaded and initialized **/
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
             display: none !important;
         }
@@ -41,18 +39,22 @@
 <script type="text/javascript" src="node_modules/md-data-table/dist/md-data-table.js"></script>
 
 <!-- remote cdn JavaScript -->
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>
+<script type="text/javascript"
+        src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>
+<script type="text/javascript"
+        src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>
 
 <!-- main application entry point -->
 <script type="text/javascript" src="picks.app.js"></script>
 <script type="text/javascript" src="core.picks.ctrl.js"></script>
-<!-- data services -->
+<!-- services -->
 <script type="text/javascript" src="services/ser.pick.js"></script>
-<!-- data controllers -->
+<!-- controllers -->
 <script type="text/javascript" src="states/home/ctrl.home.js"></script>
 <script type="text/javascript" src="states/create-pick/ctrl.create-pick.js"></script>
+<!-- directives -->
+<script type="text/javascript" src="directives/dir.hide-image.js"></script>
 
 
 </body>

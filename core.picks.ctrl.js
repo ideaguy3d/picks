@@ -15,18 +15,23 @@
         $scope.ccPrintTickets = [];
         $scope.ccRowsSelected = 0;
         $scope.ccMaximumRows = 5;
+        $scope.ccDataLoading = true;
         $scope.ccMarkComplete = markComplete;
         $scope.ccRowSelectedCallback = rowSelectedCallback;
         activate();
 
-        // class functions
+        //-----------------------
+        // -- Class Functions --
+        //-----------------------
         function activate() {
             rsmPickService.readPickTickets()
                 .then(function (res) {
                     $scope.ccPrintTickets = res.data;
+                    $scope.ccDataLoading = false;
                 })
                 .catch(function (err) {
                     console.log("__>> RSM_ERROR: ", err);
+                    $scope.ccDataLoading = false;
                 });
         }
 

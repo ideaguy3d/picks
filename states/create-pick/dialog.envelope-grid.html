@@ -1,0 +1,54 @@
+<md-dialog aria-label="Mango (Fruit)">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Envelopes</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <ng-md-icon icon="cancel" aria-label="Close dialog"></ng-md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <p style="margin-top: 0;"><i><b>Hover over image w/mouse to enlarge it.</b></i></p>
+                <div class="rsm-text-center rsm-75vw">
+                    <!-- envelope images grid, md-cols-xs="1" md-cols-md="2" md-cols-gt-md="3" -->
+                    <md-grid-list md-cols="3" md-row-height="2:1" md-gutter="8px" class="rsm-grid-list">
+                        <!-- ng-repeat starts -->
+                        <md-grid-tile ng-repeat="envelope in createPickEnvelopeImages">
+                            <!-- layout="column" layout-align="start start" layout-margin -->
+                            <div class="rsm-scale-hover">
+                                <!-- image is here, -xs="100" flex-sm="80" flex-gt-sm="60" -->
+                                <div ng-click="createPickImageSelected(envelope.tid)">
+                                    <img ng-src="{{envelope.url}}" alt="image" width="100%" >
+                                </div>
+                            </div>
+
+                            <md-grid-tile-footer>
+                                <p> &nbsp;<small>{{envelope.description}}</small>
+                                    <b>{{envelope.permit}}</b></p>
+                            </md-grid-tile-footer>
+                        </md-grid-tile>
+                    </md-grid-list>
+                </div>
+            </div>
+        </md-dialog-content>
+
+        <!-- buttons at bottom of dialog
+        <md-dialog-actions layout="row">
+            <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+                More on Wikipedia
+            </md-button>
+            <span flex></span>
+            <md-button ng-click="createPickImageSelected('not useful')">
+                Not Useful
+            </md-button>
+            <md-button ng-click="answer('useful')">
+                Useful
+            </md-button>
+        </md-dialog-actions>
+        -->
+    </form>
+</md-dialog>

@@ -46,6 +46,10 @@ angular.module('rsm-pick', [
                     templateUrl: 'states/home/view.home.html',
                     controller: 'HomeCtrl',
                     controllerAs: 'cHomeCtrl'
+                })
+                // 4, no ctrl
+                .when('/prac', {
+                    templateUrl: 'states/prac/view.prac.html'
                 });
 
             // $locationProvider.otherwise('/');

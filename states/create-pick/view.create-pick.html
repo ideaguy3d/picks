@@ -6,10 +6,12 @@
 
     <!-- send pick ticket button -->
     <div ng-hide="!cCreatePick.requestStatus" class="rsm-request-status">
-        <h2>{{cCreatePick.requestStatus + " for job " + typeof(cCreatePick.jobNumber).toString() + " " + cCreatePick.jobNumber}}</h2>
+        <h2>{{cCreatePick.requestStatus + " for job " + typeof(cCreatePick.jobNumber).toString() + " " +
+            cCreatePick.jobNumber}}</h2>
     </div>
 
     <div ng-hide="!cCreatePick.showPickForm" class="rsm-form-container">
+        <!-- send pick ticket form -->
         <form ng-submit="$event.preventDefault()">
             <!-- jobNumber & coordinatorName -->
             <div layout-gt-xs="row">
@@ -35,7 +37,8 @@
                 <div layout="row" layout-align="start center" class="md-block rsm-text-center" flex-gt-xs>
                     <!--<input type="text" ng-model="cCreatePick.dueDate">-->
                     <h4>&nbsp;&nbsp; Due Date</h4>
-                    <md-datepicker ng-model="cCreatePick.dueDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                    <md-datepicker ng-model="cCreatePick.dueDate" md-placeholder="Enter date"
+                                   md-open-on-focus></md-datepicker>
                 </div>
             </div>
 
@@ -55,16 +58,36 @@
             <!-- envelopeImgUrl & paperImgUrl -->
             <div layout-gt-xs="row">
                 <md-input-container class="md-block" flex-gt-xs>
-                    <label>Envelope Image Url</label>
-                    <input type="text" ng-model="cCreatePick.envelopeImgUrl">
+                    <label>Click "Select Envelope Image" button</label>
+                    <input type="text" ng-model="createPickEnvelopeImgUrl">
                 </md-input-container>
 
                 <md-input-container class="md-block" flex-gt-xs>
-                    <label>Paper Image Url</label>
+                    <label>Click "Select Paper Image" button</label>
                     <input type="text" ng-model="cCreatePick.paperImgUrl">
                 </md-input-container>
             </div>
+
+            <!-- buttons to select paper and envelope images -->
+            <div class="rsm-dialog-content" layout-gt-xs="row">
+                <md-input-container class="md-block" flex-gt-xs>
+                    <md-button class="md-raised" ng-click="cCreatePick.showEnvelopeImages($event)">
+                        <span style="color: darkred">Select Envelope Image</span>
+                    </md-button>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-xs>
+                    <md-button class="md-raised" ng-click="cCreatePick.showPaperImages($event)">
+                        <span style="color: darkred">Select Paper Image</span>
+                    </md-button>
+                </md-input-container>
+            </div>
         </form>
+
+        <div ng-if="createPickEnvelopeUrlTidCancelled || createPickImageUrlTidCancelled">
+            {{createPickEnvelopeUrlTidCancelled + " " + createPickImageUrlTidCancelled}}
+        </div>
+        <br>
 
         <!-- submit button -->
         <div layout-gt-xs="row" layout-align="start center">
@@ -73,9 +96,11 @@
                 <!-- style = "fill: white" -->
                 <ng-md-icon icon="send" size="32" style="fill: white"></ng-md-icon>
             </md-button>
-            <p>Send Pick Ticket for Job <b>{{cCreatePick.jobNumber }}</b>&nbsp;&nbsp;<ng-md-icon icon="face"></ng-md-icon></p>
+            <p>Send Pick Ticket for Job <b>{{cCreatePick.jobNumber }}</b>&nbsp;&nbsp;<ng-md-icon
+                    icon="face"></ng-md-icon>
+            </p>
         </div>
     </div>
 
-    <!--<md-divider></md-divider>-->
+
 </section>
