@@ -9,7 +9,7 @@
     function InventoryServiceClass($http, $rootScope) {
         let localUri = 'http://localhost/ninja/app/pick/tickets';
         let productionUri = 'http://192.168.7.17/ninja/app/pick/tickets';
-        let uri = localUri;
+        let uri = productionUri;
 
         function readPickTickets() {
             return $http.get(uri + '/read/v1');
