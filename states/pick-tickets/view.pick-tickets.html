@@ -31,9 +31,9 @@
     </div>
 
     <mdt-table selectable-rows="true" selected-row-callback="ccRowSelectedCallback(rows)"
-            table-card="{visible: true, title: 'Select 1 or more rows to delete after it has been picked. Click Image to enlarge to.'}"
-            delete-row-callback="ccMarkComplete(rows)" alternate-headers="'contextual'"
-            mdt-row="{'data': filteredItems, 'table-row-id-key': 'id',
+               table-card="{visible: true, title: 'Select 1 or more rows to delete after it has been picked. Click Image to enlarge to.'}"
+               delete-row-callback="ccMarkComplete(rows)" alternate-headers="'contextual'"
+               mdt-row="{'data': filteredItems, 'table-row-id-key': 'id',
                         'column-keys': ['job_number', 'coordinator_name', 'due_date', 'quantity', 'paper_description',
                         'envelope_description', 'paper_img_url', 'envelope_img_url']}">
 
@@ -52,7 +52,9 @@
 
         <mdt-custom-cell column-key="paper_img_url">
             <div class="rsm-crop">
-                <img ng-src="{{value}}" alt="{{clientScope.getNutritionWithId(rowId).name}}"/>
+                <a ng-href="{{value}}" target="_blank">
+                    <img ng-src="{{value}}" alt="{{clientScope.getNutritionWithId(rowId).name}}"/>
+                </a>
             </div>
         </mdt-custom-cell>
 

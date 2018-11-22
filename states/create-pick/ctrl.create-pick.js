@@ -175,64 +175,64 @@
         vm.imgPaperUrls = [
             {
                 tid: 1,
-                url: 'http://192.168.7.17/images/house-stock/paper-url/8.5x11%2020p%20blue.jpg',
+                url: 'http://192.168.7.17/images/house-stock/paper-url/8.5x11%2020p%20blue2.jpg',
                 description: '8.5x11 20p blue',
                 side: ''
             }, {
                 tid: 2,
-                url: 'http://192.168.7.17/images/house-stock/paper-url/8.5x11%2020p%20green.jpg',
+                url: 'http://192.168.7.17/images/house-stock/paper-url/8.5x11%2020p%20green2.jpg',
                 description: '8.5x11 20p green',
                 side: ''
             }, {
                 tid: 3,
-                url: 'http://192.168.7.17/images/house-stock/paper-url/8.5x11%2020p%20pink.jpg',
+                url: 'http://192.168.7.17/images/house-stock/paper-url/8.5x11%2020p%20pink2.jpg',
                 description: '8.5x11 20p pink',
                 side: ''
             }, {
                 tid: 4,
-                url: 'http://192.168.7.17/images/house-stock/paper-url/8.5x11%2020p%20yellow.jpg',
+                url: 'http://192.168.7.17/images/house-stock/paper-url/8.5x11%2020p%20yellow2.jpg',
                 description: '8.5x11 20p yellow',
                 side: ''
             }, {
                 tid: 5,
                 url: 'http://192.168.7.17/images/house-stock/paper-url/sp-ps%208.5x11%20c%20fold%20blue%20window%20check%20snaps%20-back.jpg',
                 description: 'sp-ps 8.5x11 c fold blue window check snaps',
-                side: 'back'
+                side: 'BACK'
             }, {
                 tid: 6,
                 url: 'http://192.168.7.17/images/house-stock/paper-url/sp-ps%208.5x11%20c%20fold%20blue%20window%20check%20snaps%20-front.jpg',
                 description: 'sp-ps 8.5x11 c fold blue window check snaps',
-                side: 'front'
+                side: 'FRONT'
             }, {
                 tid: 7,
                 url: 'http://192.168.7.17/images/house-stock/paper-url/sp-ps%20v%20fold%208.5x11%20black%20on%20white%20-back.jpg',
                 description: 'sp-ps v fold 8.5x11 black on white',
-                side: 'back'
+                side: 'BACK'
             }, {
                 tid: 8,
                 url: 'http://192.168.7.17/images/house-stock/paper-url/sp-ps%20v%20fold%208.5x11%20black%20on%20white%20-front.jpg',
                 description: 'sp-ps v fold 8.5x11 black on white',
-                side: 'front'
+                side: 'FRONT'
             }, {
                 tid: 9,
                 url: 'http://192.168.7.17/images/house-stock/paper-url/sp-ps%20z%20fold%208.5x14%20blue%20on%20white%20-back.jpg',
                 description: 'sp-ps z fold 8.5x14 blue on white',
-                side: 'back'
+                side: 'BACK'
             }, {
                 tid: 10,
                 url: 'http://192.168.7.17/images/house-stock/paper-url/sp-ps%20z%20fold%208.5x14%20blue%20on%20white%20-front.jpg',
                 description: 'sp-ps z fold 8.5x14 blue on white',
-                side: 'front'
+                side: 'FRONT'
             }, {
                 tid: 11,
                 url: 'http://192.168.7.17/images/house-stock/paper-url/sp-ps%20z%20fold%208.5x14%20white%20on%20white%20-back.jpg',
                 description: 'sp-ps z fold 8.5x14 white on white',
-                side: 'back'
+                side: 'BACK'
             }, {
                 tid: 12,
                 url: 'http://192.168.7.17/images/house-stock/paper-url/sp-ps%20z%20fold%208.5x14%20white%20on%20white%20-front.jpg',
                 description: 'sp-ps z fold 8.5x14 white on white',
-                side: 'front'
+                side: 'FRONT'
             }, {
                 tid: 14,
                 url: 'http://192.168.7.17/images/house-stock/paper-url/sp-ps%20v%20fold%208.5x11%20white%20on%20black%20-back.jpg',
