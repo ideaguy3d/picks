@@ -1,8 +1,8 @@
-<md-dialog aria-label="Envelope Images">
+<md-dialog aria-label="Paper Images">
     <form ng-cloak>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>Envelopes</h2>
+                <h2>Paper</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
                     <ng-md-icon icon="cancel" aria-label="Close dialog"></ng-md-icon>
@@ -12,23 +12,24 @@
 
         <md-dialog-content>
             <div class="md-dialog-content">
-                <p style="margin-top: 0;"><i><b>Hover over image w/mouse to enlarge it.</b></i></p>
+                <p style="margin-top: 0;"><i><b>Hover over image w/mouse to enlarge it</b></i>
+                    ... Pro Tip: right-click > Open image in new tab (to see larger img)</p>
                 <div class="rsm-text-center rsm-75vw">
                     <!-- envelope images grid, md-cols-xs="1" md-cols-md="2" md-cols-gt-md="3" -->
-                    <md-grid-list md-cols="3" md-row-height="2:1" md-gutter="8px" class="rsm-grid-list">
+                    <md-grid-list md-cols="3" md-row-height="3:4" md-gutter="8px" class="rsm-grid-list">
                         <!-- ng-repeat starts -->
-                        <md-grid-tile ng-repeat="envelope in createPickEnvelopeImages">
+                        <md-grid-tile ng-repeat="paper in createPickPaperImages">
                             <!-- layout="column" layout-align="start start" layout-margin -->
                             <div class="rsm-scale-hover">
                                 <!-- image is here, -xs="100" flex-sm="80" flex-gt-sm="60" -->
-                                <div ng-click="createPickImageSelected(envelope.tid)">
-                                    <img ng-src="{{envelope.url}}" alt="image" width="100%" >
+                                <div ng-click="createPickImageSelected(paper.tid)">
+                                    <img ng-src="{{paper.url}}" alt="image" width="100%" >
                                 </div>
                             </div>
 
                             <md-grid-tile-footer>
-                                <p> &nbsp;<small>{{envelope.description}}</small>
-                                    <b>{{envelope.permit}}</b></p>
+                                <p> &nbsp; <small>{{paper.description}}</small>
+                                    <b>{{paper.side}}</b></p>
                             </md-grid-tile-footer>
                         </md-grid-tile>
                     </md-grid-list>

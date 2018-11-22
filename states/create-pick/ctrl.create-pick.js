@@ -171,9 +171,8 @@
                 permit: '1946'
             }
         ];
-
         // paper url's
-        vm.imgPaperUrl = [
+        vm.imgPaperUrls = [
             {
                 tid: 1,
                 url: 'http://192.168.7.17/images/house-stock/paper-url/8.5x11%2020p%20blue.jpg',
@@ -251,6 +250,8 @@
                 side: ''
             }
         ];
+
+        // basic vm bindings
         vm.viewTitle = 'Create a Pick';
         vm.showPickForm = true;
         vm.requestStatus = '';
@@ -277,19 +278,26 @@
         //------------------------------------------
         function showPaperImages(event) {
             $mdDialog.show({
-                controller: DialogCtrl,
-                templateUrl: 'states/pick-tickets/dialog.prac.html',
+                controller: PaperDialogCtrl,
+                templateUrl: 'states/create-pick/dialog.paper-grid.html',
                 parent: angular.element(document.body),
                 targetEvent: event,
                 clickOutsideToClose: true,
                 fullscreen: vm.customFullscreen
-            }).then(function (answer) {
-                $scope.pracDialogStatus = 'You said the information was "' + answer + '".';
+            }).then(function (tid) {
+                vm.imgPaperUrls.forEach(function (elem) {
+                    if (elem.tid === tid) {
+                        $scope.createPickPaperImgUrl = elem.url;
+                        vm.paperImgUrl = elem.url;
+                    }
+                });
             }, function () {
-                $scope.pracDialogStatus = "You cancelled the dialog.";
+                $scope.createPickImageUrlTidCancelled = "You cancelled the Paper dialog.";
             });
 
-            function DialogCtrl($scope, $mdDialog) {
+            function PaperDialogCtrl($scope, $mdDialog) {
+                $scope.createPickPaperImages = vm.imgPaperUrls;
+
                 $scope.hide = function () {
                     $mdDialog.hide();
                 };
@@ -302,11 +310,13 @@
                     $mdDialog.hide(answer);
                 };
 
-                $scope.selectedImage = function (image) {
-
+                $scope.createPickImageSelected = function (tid) {
+                    $mdDialog.hide(tid);
+                    console.log("tid of envelope selected = " + tid);
                 }
-            }
-        }
+            } // END OF: inner-function PaperImageCtrl
+
+        } // END OF: PaperDialogCtrl(){}
 
         function showEnvelopeImages(event) {
             $mdDialog.show({
@@ -324,7 +334,7 @@
                     }
                 });
             }, function () {
-                $scope.createPickEnvelopeUrlTidCancelled = "You cancelled the dialog.";
+                $scope.createPickEnvelopeUrlTidCancelled = "You cancelled the Envelope dialog.";
             });
 
             function EnvelopeDialogCtrl($scope, $mdDialog) {
@@ -338,7 +348,8 @@
                     $mdDialog.hide(tid);
                     console.log("tid of envelope selected = " + tid);
                 };
-            }
+            } // END OF: inner-function EnvelopeDialogCtrl(){}
+
         } // END OF: showEnvelopeImages(){}
 
         function sendPickTicket() {
