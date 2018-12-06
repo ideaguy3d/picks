@@ -47,7 +47,13 @@ angular.module('rsm-pick', [
                     controller: 'HomeCtrl',
                     controllerAs: 'cHomeCtrl'
                 })
-                // 4, no ctrl
+                // 4 ctrl: PicksCompleteCtrl
+                .when('/pick-complete', {
+                    templateUrl: 'states/picks-complete/view.picks-complete.html',
+                    controller: 'PicksCompleteCtrl',
+                    controllerAs: 'cPicksComplete'
+                })
+                // 5, no ctrl
                 .when('/prac', {
                     templateUrl: 'states/prac/view.prac.html'
                 });
