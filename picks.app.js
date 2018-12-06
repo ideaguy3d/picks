@@ -48,14 +48,16 @@ angular.module('rsm-pick', [
                     controllerAs: 'cHomeCtrl'
                 })
                 // 4 ctrl: PicksCompleteCtrl
-                .when('/pick-complete', {
+                .when('/done-picks', {
                     templateUrl: 'states/picks-complete/view.picks-complete.html',
                     controller: 'PicksCompleteCtrl',
                     controllerAs: 'cPicksComplete'
                 })
                 // 5, no ctrl
                 .when('/prac', {
-                    templateUrl: 'states/prac/view.prac.html'
+                    templateUrl: 'states/prac/view.prac.html',
+                    controller: 'PracCtrl',
+                    controllerAs: 'cPrac'
                 });
 
             // $locationProvider.otherwise('/');

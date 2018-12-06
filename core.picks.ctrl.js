@@ -5,7 +5,6 @@
     ]);
 
     function CoreCtrlClass($scope, $location, $rootScope, rsmPickService, $mdToast) {
-
         $rootScope.R_appLocal = true;
 
         // get a timestamp for logging while developing:
@@ -16,6 +15,7 @@
         $scope.ccRowsSelected = 0;
         $scope.ccMaximumRows = 5;
         $scope.ccDataLoading = true;
+        $scope.testData = "client scope";
         $scope.ccMarkComplete = markComplete;
         $scope.ccRowSelectedCallback = rowSelectedCallback;
         activate();
@@ -26,7 +26,15 @@
         function activate() {
             rsmPickService.readPickTickets()
                 .then(function (res) {
-                    $scope.ccPrintTickets = res.data;
+                    let tData = res.data;
+                    // do some custom data transforms
+                    tData.forEach(function (elem) {
+                        // add a field to "print" data
+                        elem.print = "Print";
+                        console.log("res.data elem = ");
+                        console.log(elem);
+                    });
+                    $scope.ccPrintTickets = tData;
                     $scope.ccDataLoading = false;
                 })
                 .catch(function (err) {
