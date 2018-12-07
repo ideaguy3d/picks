@@ -1,18 +1,30 @@
 (function(){
     angular.module('rsm-pick').controller('PrintPickCtrl', [
-        'getPickHash', 'rsmPickService', '$rootScope', PrintPickCtrlClass
+        'getPickHash', 'rsmPickService', '$location', PrintPickCtrlClass
     ]);
 
-    function PrintPickCtrlClass(getPickHash, rsmPickService, $rootScope) {
+    function PrintPickCtrlClass(getPickHash, rsmPickService, $location) {
         const vm = this;
-        vm.info = "info - will get data from url";
+        vm.info = "info - will get ID from url";
+        vm.pickTicket = {};
+
+        vm.gotoPickTable = function () {
+            $location.url('/')
+        };
 
         activate();
 
         function activate() {
             console.log("__>> ctrl.print-pick.js > activate() rsmPickService data:");
             console.log(rsmPickService.getPickTicketsHash());
-            console.log($rootScope.R_pickTicketHash);
+            let tData = rsmPickService.getPickTicketsHash();
+            vm.pickTicket = tData[getPickHash.pickId];
+            console.log("vm.pick ticket =");
+            console.log(vm.pickTicket);
+
+            setTimeout(function () {
+                window.print();
+            }, 900);
         }
     }
 }());
