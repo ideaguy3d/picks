@@ -1,4 +1,4 @@
-(function(){
+(function () {
     angular.module('rsm-pick').controller('PracCtrl', [
         PracCtrlClass
     ]);
@@ -9,6 +9,11 @@
 
         vm.printPrac = function () {
             window.print();
-        }
+        };
+
+        // give view 200ms to load:
+        setTimeout(function () {
+            vm.printPrac();
+        }, 200);
     }
 }());

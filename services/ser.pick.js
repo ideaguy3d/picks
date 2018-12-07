@@ -11,6 +11,19 @@
         let productionUri = 'http://192.168.7.17/ninja/app/pick/tickets';
         let uri = productionUri;
 
+        let inventory = this;
+        inventory.pickTicketHash = {};
+
+        function setPickTicketsHash(hashedObj) {
+            $rootScope.R_pickTicketHash = hashedObj;
+            console.log("SET $rootScope.R_pickTicketHash =");
+            console.log($rootScope.R_pickTicketHash);
+        }
+
+        function getPickTicketsHash() {
+            return $rootScope.R_pickTicketHash;
+        }
+
         function readPickTickets() {
             return $http.get(uri + '/read/v1');
         }
@@ -65,7 +78,9 @@
         return {
             readPickTickets: readPickTickets,
             createPickTicket: createPickTicket,
-            markPickComplete: markPickComplete
+            markPickComplete: markPickComplete,
+            getPickTicketsHash: getPickTicketsHash,
+            setPickTicketsHash: setPickTicketsHash
         }
     }
 }());

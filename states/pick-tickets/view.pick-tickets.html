@@ -53,8 +53,12 @@
 
         <!-- print ticket - CUSTOM -->
         <mdt-custom-cell column-key="print">
-            <!--<span style="color: #8e2f33">Print</span>-->
-            <a ng-href="#/create-pick" target="_blank">Print {{clientScope.testData}}</a>
+            <!--
+            <span style="color: #8e2f33">Print</span>
+            /{{clientScope.ccHash[rowId][id]
+            -->
+            <a ng-href="#/print-pick{{clientScope.ccConstructUri(rowId)}}"
+               target="_self">Print <b><i>{{clientScope.ccHash[rowId].job_number}}</i></b></a>
         </mdt-custom-cell>
 
         <!-- clickable image - CUSTOM -->
