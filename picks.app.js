@@ -47,9 +47,30 @@ angular.module('rsm-pick', [
                     controller: 'HomeCtrl',
                     controllerAs: 'cHomeCtrl'
                 })
-                // 4, no ctrl
+                // 4 ctrl: PicksCompleteCtrl
+                .when('/done-picks', {
+                    templateUrl: 'states/picks-complete/view.picks-complete.html',
+                    controller: 'PicksCompleteCtrl',
+                    controllerAs: 'cPicksComplete'
+                })
+                .when('/print-pick/:pickId', {
+                    templateUrl: 'states/print-pick/view.print-pick.html',
+                    controller: 'PrintPickCtrl',
+                    controllerAs: 'cPrintPick',
+                    resolve: {
+                        getPickHash: function (rsmPickService, $route) {
+                            return {
+                                status: 'resolve getPickHash object',
+                                pickId: $route.current.params.pickId
+                            };
+                        }
+                    }
+                })
+                // 5, ctrl: PracCtrl
                 .when('/prac', {
-                    templateUrl: 'states/prac/view.prac.html'
+                    templateUrl: 'states/prac/view.prac.html',
+                    controller: 'PracCtrl',
+                    controllerAs: 'cPrac'
                 });
 
             // $locationProvider.otherwise('/');

@@ -5,7 +5,6 @@
     ]);
 
     function CoreCtrlClass($scope, $location, $rootScope, rsmPickService, $mdToast) {
-
         $rootScope.R_appLocal = true;
 
         // get a timestamp for logging while developing:
@@ -16,17 +15,37 @@
         $scope.ccRowsSelected = 0;
         $scope.ccMaximumRows = 5;
         $scope.ccDataLoading = true;
+        // the print tickets data hashed by their id
+        $scope.ccHash = {};
+        $scope.testData = "client scope";
+        // controller functions
         $scope.ccMarkComplete = markComplete;
         $scope.ccRowSelectedCallback = rowSelectedCallback;
+        $scope.ccConstructUri = constructUri;
         activate();
 
         //-----------------------
         // -- Class Functions --
         //-----------------------
+
+        // activate initializes view model data in .then()
         function activate() {
             rsmPickService.readPickTickets()
                 .then(function (res) {
-                    $scope.ccPrintTickets = res.data;
+                    let tData = res.data;
+                    // do some custom data transforms
+                    tData.forEach(function (record) {
+                        // add a field to "Print" to print data
+                        record.print = "Print";
+                        console.log("res.data record  for record " + record.id + " = ");
+                        console.log(record);
+                        $scope.ccHash[record.id] = record;
+                    }); // END OF: .forEach()
+
+                    rsmPickService.setPickTicketsHash($scope.ccHash);
+
+                    // SUPER IMPORTANT, the view model data from API
+                    $scope.ccPrintTickets = tData;
                     $scope.ccDataLoading = false;
                 })
                 .catch(function (err) {
@@ -35,8 +54,23 @@
                 });
         }
 
+        function constructUri(rowId) {
+            let uri = "";
+            let record = $scope.ccHash[rowId];
+            for (let key in record) {
+                if (record.hasOwnProperty(key)) {
+                    // just get the id, otherwise the url will get really complex
+                    // but since I'm iterating over the object, I can add more data to the url if need be
+                    if (key === 'id') {
+                        uri += ("/" + record[key]);
+                    }
+                }
+            }
+            return uri;
+        }
+
         /**
-         * @param rows -
+         * @param rows - the rows to set as complete in SQL Server
          */
         function markComplete(rows) {
             $scope.ccRowsSelected = 0;

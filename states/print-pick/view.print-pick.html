@@ -1,0 +1,28 @@
+<section layout="column" layout-align="center center" layout-padding layout-margin>
+    <h1>Redstone Print and Mail Pick Ticket info:</h1>
+    <h2>Job: {{cPrintPick.pickTicket.job_number}}</h2>
+
+    <div flex="90">
+        <div layout="row" layout-align="start center">
+            <div layout="column" layout-align="center start">
+                <p><b>Coordinator:</b> {{cPrintPick.pickTicket.coordinator_name}}</p>
+                <p><b>Due Date:</b> {{cPrintPick.pickTicket.due_date}}</p>
+                <p><b>Quantity:</b> {{cPrintPick.pickTicket.quantity}}</p>
+
+                <p>{{cPrintPick.pickTicket.envelope_description}}</p>
+                <p>{{cPrintPick.pickTicket.paper_description}}</p>
+
+                <p ng-if="cPrintPick.pickTicket.envelope_img_url">
+                    <img ng-src="{{cPrintPick.pickTicket.envelope_img_url}}" alt="img" width="200px"></p>
+                <p ng-if="cPrintPick.pickTicket.paper_img_url">
+                    <img ng-src="{{cPrintPick.pickTicket.paper_img_url}}" alt="img" height="200px"></p>
+            </div>
+        </div>
+    </div>
+
+    <md-button class="md-raised" ng-click="cPrintPick.gotoPickTable()">
+        Back To Pick Table
+    </md-button>
+
+
+</section>
