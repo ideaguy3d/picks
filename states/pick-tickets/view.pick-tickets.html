@@ -7,7 +7,7 @@
     <!-- the filter search box -->
     <md-card style="margin:0">
         <md-input-container style="margin:15px;">
-            <label>Filter by Coordinator</label>
+            <label>Search Entire Table</label>
             <input type="text" ng-model="filterName">
         </md-input-container>
 
@@ -31,17 +31,16 @@
     </div>
 
     <mdt-table selectable-rows="true" selected-row-callback="ccRowSelectedCallback(rows)"
-               table-card="{visible: true, title: 'Select 1 or more rows to delete after it has been picked. Click Image to enlarge to.'}"
+               table-card="{visible: true, title: 'Select 1 to 5 rows to delete after it has been picked. Click Image to enlarge.'}"
                delete-row-callback="ccMarkComplete(rows)" alternate-headers="'contextual'"
                mdt-row="{'data': filteredItems, 'table-row-id-key': 'id',
                         'column-keys': ['job_number', 'print', 'coordinator_name', 'due_date', 'quantity', 'paper_description',
                         'envelope_description', 'paper_img_url', 'envelope_img_url']}">
 
-        <!-- table rows -->
+        <!-- table header row -->
         <mdt-header-row>
             <mdt-column align-rule="left">Job #</mdt-column>
             <mdt-column align-rule="left">Print</mdt-column>
-            <!--<mdt-column align-rule="left">Mark Complete</mdt-column>-->
             <mdt-column align-rule="left">Coordinator</mdt-column>
             <mdt-column align-rule="right">The Due Date</mdt-column>
             <mdt-column align-rule="right">Quantity</mdt-column>
@@ -53,10 +52,6 @@
 
         <!-- print ticket - CUSTOM -->
         <mdt-custom-cell column-key="print">
-            <!--
-            <span style="color: #8e2f33">Print</span>
-            /{{clientScope.ccHash[rowId][id]
-            -->
             <a ng-href="#/print-pick{{clientScope.ccConstructUri(rowId)}}"
                target="_self">Print <b><i>{{clientScope.ccHash[rowId].job_number}}</i></b></a>
         </mdt-custom-cell>

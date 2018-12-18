@@ -48,17 +48,17 @@ angular.module('rsm-pick', [
                     controllerAs: 'cHomeCtrl'
                 })
                 // 4 ctrl: PicksCompleteCtrl
-                .when('/done-picks', {
-                    templateUrl: 'states/picks-complete/view.picks-complete.html',
-                    controller: 'PicksCompleteCtrl',
-                    controllerAs: 'cPicksComplete'
+                .when('/done', {
+                    templateUrl: 'states/done/view.done.html',
+                    controller: 'DoneCtrl',
+                    controllerAs: 'cDone'
                 })
                 .when('/print-pick/:pickId', {
                     templateUrl: 'states/print-pick/view.print-pick.html',
                     controller: 'PrintPickCtrl',
                     controllerAs: 'cPrintPick',
                     resolve: {
-                        getPickHash: function (rsmPickService, $route) {
+                        getPickHashResolve: function (rsmPickService, $route) {
                             return {
                                 status: 'resolve getPickHash object',
                                 pickId: $route.current.params.pickId
