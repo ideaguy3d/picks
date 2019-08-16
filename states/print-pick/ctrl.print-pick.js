@@ -9,7 +9,7 @@
         vm.pickTicket = {};
 
         vm.gotoPickTable = function () {
-            $location.url('/');
+            $location.url('/')
         };
 
         activate();
