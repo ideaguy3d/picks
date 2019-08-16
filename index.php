@@ -55,7 +55,7 @@
 <!-- controllers -->
 <script type="text/javascript" src="states/home/ctrl.home.js"></script>
 <script type="text/javascript" src="states/create-pick/ctrl.create-pick.js"></script>
-<script type="text/javascript" src="states/picks-complete/ctrl.picks-complete.js"></script>
+<script type="text/javascript" src="states/done/ctrl.done.js"></script>
 <script type="text/javascript" src="states/prac/ctrl.prac.js"></script>
 <script type="text/javascript" src="states/print-pick/ctrl.print-pick.js"></script>
 <!-- directives -->

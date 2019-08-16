@@ -31,13 +31,13 @@
     </div>
 
     <mdt-table selectable-rows="true" selected-row-callback="ccRowSelectedCallback(rows)"
-               table-card="{visible: true, title: 'Select 1 or more rows to delete after it has been picked. Click Image to enlarge to.'}"
+               table-card="{visible: true, title: 'Select 1 to 5 rows to delete after it has been picked. Click Image to enlarge.'}"
                delete-row-callback="ccMarkComplete(rows)" alternate-headers="'contextual'"
                mdt-row="{'data': filteredItems, 'table-row-id-key': 'id',
                         'column-keys': ['job_number', 'print', 'coordinator_name', 'due_date', 'quantity', 'paper_description',
                         'envelope_description', 'paper_img_url', 'envelope_img_url']}">
 
-        <!-- table rows -->
+        <!-- table header row -->
         <mdt-header-row>
             <mdt-column align-rule="left">Job #</mdt-column>
             <mdt-column align-rule="left">Print</mdt-column>
