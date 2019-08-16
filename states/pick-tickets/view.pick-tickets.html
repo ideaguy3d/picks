@@ -41,6 +41,7 @@
         <mdt-header-row>
             <mdt-column align-rule="left">Job #</mdt-column>
             <mdt-column align-rule="left">Print</mdt-column>
+            <!--<mdt-column align-rule="left">Mark Complete</mdt-column>-->
             <mdt-column align-rule="left">Coordinator</mdt-column>
             <mdt-column align-rule="right">The Due Date</mdt-column>
             <mdt-column align-rule="right">Quantity</mdt-column>
@@ -52,6 +53,10 @@
 
         <!-- print ticket - CUSTOM -->
         <mdt-custom-cell column-key="print">
+            <!--
+            <span style="color: #8e2f33">Print</span>
+            /{{clientScope.ccHash[rowId][id]
+            -->
             <a ng-href="#/print-pick{{clientScope.ccConstructUri(rowId)}}"
                target="_self">Print <b><i>{{clientScope.ccHash[rowId].job_number}}</i></b></a>
         </mdt-custom-cell>

@@ -28,8 +28,7 @@
 
         // give view 200ms to load:
         setTimeout(function () {
-            //vm.printPrac();
-            console.log("setTimeout() invoked.");
+            vm.printPrac();
         }, 200);
     }
 }());
