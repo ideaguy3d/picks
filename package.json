@@ -9,7 +9,7 @@
     "angular-route": "~1.5.7",
     "angular-sanitize": "~1.5.7",
     "jquery": "~2.1.4",
-    "lodash": "~3.10.1",
+    "lodash": "~4.17.19",
     "md-data-table": "~2.2.0"
   },
   "deprecated": false,
@@ -47,7 +47,7 @@
     "karma-ng-scenario": "~0.1.0",
     "karma-phantomjs-launcher": "~0.2.1",
     "karma-traceur-preprocessor": "~0.4.0",
-    "lodash": "~3.10.1",
+    "lodash": "~4.17.19",
     "main-bower-files": "~2.11.0",
     "phantomjs": "^2.1.7",
     "run-sequence": "~1.1.5",
